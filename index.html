@@ -6,6 +6,7 @@
 
 <title>Yash Sharma | Real Estate Consultant in Kota, Jaipur, Mumbai</title>
 <meta name="description" content="Yash Sharma – Trusted Real Estate Consultant with 2.5+ years experience, 70+ plots sold and 10k+ client network across Kota, Jaipur, Mumbai & Ajmer.">
+<meta name="keywords" content="Property Dealer Kota, Real Estate Jaipur, Plots in Mumbai, Property Consultant Ajmer">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -27,6 +28,18 @@ body {
   color: #333;
 }
 
+h1, h2, h3 { letter-spacing: -0.5px; }
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
 /* HEADER */
 header {
   background: var(--primary);
@@ -35,6 +48,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 header h1 { font-size: 1.4rem; }
@@ -48,37 +64,35 @@ nav a {
 
 /* HERO */
 .hero {
-  background: url("images/hero-city.jpg") center/cover no-repeat;
-  padding: 80px 40px;
+  position: relative;
+  background: linear-gradient(rgba(15,23,42,0.65),rgba(15,23,42,0.65)),
+    url("images/hero-city.jpg") center/cover no-repeat;
+  padding: 90px 40px;
 }
 
 .hero-card {
-  background: rgba(255,255,255,0.95);
-  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.92);
+  border-radius: 18px;
   max-width: 1100px;
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  padding: 40px;
+  padding: 45px;
 }
 
 .hero img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
 .hero h2 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   margin: 0;
 }
 
 .hero h2 span { color: var(--accent); }
-
-.hero p {
-  margin-top: 15px;
-  line-height: 1.6;
-}
 
 .social a {
   margin-right: 15px;
@@ -90,7 +104,7 @@ nav a {
 /* SECTIONS */
 section {
   max-width: 1100px;
-  margin: 50px auto;
+  margin: 60px auto;
   padding: 0 20px;
 }
 
@@ -103,22 +117,28 @@ section {
 
 .stat-box {
   background: var(--card);
-  padding: 25px;
-  border-radius: 14px;
+  padding: 30px;
+  border-radius: 16px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
 }
+
+.stat-box:hover { transform: translateY(-6px); }
 
 .stat-box h3 { font-size: 2rem; margin: 0; }
 
 /* BUTTONS */
 .btn {
   display: inline-block;
-  padding: 12px 22px;
+  padding: 12px 24px;
   border-radius: 25px;
   text-decoration: none;
   font-weight: 600;
+  transition: all 0.3s ease;
 }
+
+.btn:hover { transform: scale(1.05); }
 
 .btn-primary { background: var(--primary); color: #fff; }
 .btn-accent { background: var(--accent); color: #000; }
@@ -133,52 +153,43 @@ section {
 .awards-grid img {
   width: 100%;
   height: 150px;
-  border-radius: 12px;
+  border-radius: 14px;
   object-fit: cover;
   background: #ddd;
+  transition: transform 0.3s ease;
 }
 
-/* CONTACT FORM */
+.awards-grid img:hover { transform: scale(1.05); }
+
+/* CONTACT */
 .contact-form {
   background: var(--card);
-  padding: 30px;
-  border-radius: 16px;
+  padding: 35px;
+  border-radius: 18px;
   max-width: 700px;
   margin: auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
   padding: 12px;
-  margin-top: 10px;
+  margin-top: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-family: inherit;
-}
-
-.contact-form button {
-  margin-top: 15px;
-  border: none;
-  cursor: pointer;
 }
 
 /* FOOTER */
 footer {
   background: var(--primary);
   color: #fff;
-  padding: 30px;
+  padding: 35px;
   text-align: center;
 }
 
-/* FLOATING BUTTONS */
-.floating {
-  position: fixed;
-  right: 20px;
-  z-index: 999;
-}
-
+/* FLOATING */
+.floating { position: fixed; right: 20px; z-index: 999; }
 .whatsapp { bottom: 90px; }
 .call { bottom: 20px; }
 
@@ -219,23 +230,18 @@ footer {
 
 <div class="hero">
   <div class="hero-card">
-    <img src="images/hero-city.jpg" alt="Real Estate City Image">
+    <img src="images/hero-city.jpg" alt="Real Estate">
     <div>
-      <h2>Yash <span>Sharma</span></h2>
+      <h2>Trusted <span>Real Estate Consultant</span><br>in Rajasthan & Mumbai</h2>
       <p>
-        With <strong>2.5+ years of experience</strong> and over <strong>70 successful plots sold</strong>, 
-        I help investors and families find properties across 
-        <strong>Kota, Jaipur, Mumbai & Ajmer</strong>.
+        Helping investors and families with verified properties across Kota, Jaipur, Mumbai & Ajmer.
       </p>
-
       <div class="social">
         <a href="#">YouTube</a>
         <a href="#">Instagram</a>
         <a href="#">Facebook</a>
         <a href="#">LinkedIn</a>
-      </div>
-
-      <br>
+      </div><br>
       <a class="btn btn-primary" href="tel:+917597578804">Call Now</a>
       <a class="btn btn-accent" href="#contact">Contact</a>
     </div>
@@ -252,9 +258,32 @@ footer {
   </div>
 </section>
 
+<section>
+  <h2>Why Choose Me</h2>
+  <div class="stats">
+    <div class="stat-box"><h3>✔</h3><p>Verified Properties</p></div>
+    <div class="stat-box"><h3>₹</h3><p>Transparent Pricing</p></div>
+    <div class="stat-box"><h3>📍</h3><p>Local Expertise</p></div>
+    <div class="stat-box"><h3>🤝</h3><p>End-to-End Support</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Client Testimonials</h2>
+  <div class="stats">
+    <div class="stat-box"><p>"Very professional and transparent."</p><strong>- Rahul, Kota</strong></div>
+    <div class="stat-box"><p>"Smooth and trustworthy experience."</p><strong>- Neha, Jaipur</strong></div>
+  </div>
+</section>
+
 <section id="awards">
   <h2>Professional Achievements</h2>
   <div class="awards-grid" id="awardsGrid"></div>
+</section>
+
+<section>
+  <h2>Service Locations</h2>
+  <iframe src="https://www.google.com/maps?q=Kota,Jaipur,Mumbai,Ajmer&output=embed" width="100%" height="300" style="border:0;" loading="lazy"></iframe>
 </section>
 
 <section id="contact">
@@ -262,13 +291,9 @@ footer {
   <div class="contact-form">
     <form action="https://formsubmit.co/yash2sharma2000@gmail.com" method="POST">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_subject" value="New Property Inquiry">
-
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
-      <input type="tel" name="phone" placeholder="Phone Number">
       <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-
       <button class="btn btn-primary" type="submit">Send Message</button>
     </form>
   </div>
@@ -279,41 +304,17 @@ footer {
   <p>Kota • Jaipur • Mumbai • Ajmer</p>
 </footer>
 
-<!-- FLOATING BUTTONS -->
-<div class="floating whatsapp">
-  <a href="https://wa.me/917597578804" target="_blank">💬</a>
-</div>
-
-<div class="floating call">
-  <a href="tel:+917597578804">📞</a>
-</div>
+<div class="floating whatsapp"><a href="https://wa.me/917597578804">💬</a></div>
+<div class="floating call"><a href="tel:+917597578804">📞</a></div>
 
 <script>
 const grid = document.getElementById("awardsGrid");
-
-// AUTOMATIC IMAGE LOADER
-// Browsers cannot directly scan folders. 
-// WORKAROUND: We try to load images named award1.jpg, award2.jpg... up to 50.
-// Just drop files named sequentially into the folder, and they will appear here.
-
 for (let i = 1; i <= 50; i++) {
   const img = document.createElement("img");
   img.src = `images/awards/award${i}.jpg`;
-  img.alt = "Award Image";
-  
-  // Hide initially to prevent "broken image" icons while checking
   img.style.display = "none";
-
-  // If image loads successfully, show it
-  img.onload = function() {
-    this.style.display = "block";
-  };
-
-  // If image doesn't exist, remove it from the page
-  img.onerror = function() {
-    this.remove();
-  };
-
+  img.onload = () => img.style.display = "block";
+  img.onerror = () => img.remove();
   grid.appendChild(img);
 }
 </script>
