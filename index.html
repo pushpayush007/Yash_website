@@ -289,15 +289,33 @@ footer {
 </div>
 
 <script>
-const awards = ["award1.jpg","award2.jpg","award3.jpg"];
 const grid = document.getElementById("awardsGrid");
 
-awards.forEach(img => {
-  const image = document.createElement("img");
-  image.src = "images/awards/" + img;
-  image.alt = "Award Image";
-  grid.appendChild(image);
-});
+// AUTOMATIC IMAGE LOADER
+// Browsers cannot directly scan folders. 
+// WORKAROUND: We try to load images named award1.jpg, award2.jpg... up to 50.
+// Just drop files named sequentially into the folder, and they will appear here.
+
+for (let i = 1; i <= 50; i++) {
+  const img = document.createElement("img");
+  img.src = `images/awards/award${i}.jpg`;
+  img.alt = "Award Image";
+  
+  // Hide initially to prevent "broken image" icons while checking
+  img.style.display = "none";
+
+  // If image loads successfully, show it
+  img.onload = function() {
+    this.style.display = "block";
+  };
+
+  // If image doesn't exist, remove it from the page
+  img.onerror = function() {
+    this.remove();
+  };
+
+  grid.appendChild(img);
+}
 </script>
 
 </body>
