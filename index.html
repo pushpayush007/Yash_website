@@ -29,16 +29,8 @@ body {
 }
 
 h1, h2, h3 { letter-spacing: -0.5px; }
-
-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 0.95rem;
-  color: #555;
-}
+section h2 { font-size: 2rem; margin-bottom: 20px; }
+p { font-size: 0.95rem; color: #555; }
 
 /* HEADER */
 header {
@@ -53,8 +45,6 @@ header {
   z-index: 1000;
 }
 
-header h1 { font-size: 1.4rem; }
-
 nav a {
   color: #fff;
   margin-left: 20px;
@@ -64,9 +54,7 @@ nav a {
 
 /* HERO */
 .hero {
-  position: relative;
-  background: linear-gradient(rgba(15,23,42,0.65),rgba(15,23,42,0.65)),
-    url("images/hero-city.jpg") center/cover no-repeat;
+  background: linear-gradient(rgba(15,23,42,0.65),rgba(15,23,42,0.65)), url("images/hero-city.jpg") center/cover no-repeat;
   padding: 90px 40px;
 }
 
@@ -82,16 +70,8 @@ nav a {
   padding: 45px;
 }
 
-.hero img {
-  width: 100%;
-  border-radius: 14px;
-}
-
-.hero h2 {
-  font-size: 2.4rem;
-  margin: 0;
-}
-
+.hero img { width: 100%; border-radius: 14px; }
+.hero h2 { font-size: 2.4rem; margin: 0; }
 .hero h2 span { color: var(--accent); }
 
 .social a {
@@ -102,13 +82,9 @@ nav a {
 }
 
 /* SECTIONS */
-section {
-  max-width: 1100px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
+section { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
 
-/* STATS */
+/* STATS / CARDS */
 .stats {
   display: grid;
   grid-template-columns: repeat(4,1fr);
@@ -125,7 +101,6 @@ section {
 }
 
 .stat-box:hover { transform: translateY(-6px); }
-
 .stat-box h3 { font-size: 2rem; margin: 0; }
 
 /* BUTTONS */
@@ -139,7 +114,6 @@ section {
 }
 
 .btn:hover { transform: scale(1.05); }
-
 .btn-primary { background: var(--primary); color: #fff; }
 .btn-accent { background: var(--accent); color: #000; }
 
@@ -161,6 +135,10 @@ section {
 
 .awards-grid img:hover { transform: scale(1.05); }
 
+/* REVIEWS */
+.review-stars { color: var(--accent); font-size: 1.1rem; margin-bottom: 8px; }
+.review-name { font-weight: 600; margin-top: 10px; }
+
 /* CONTACT */
 .contact-form {
   background: var(--card);
@@ -181,12 +159,7 @@ section {
 }
 
 /* FOOTER */
-footer {
-  background: var(--primary);
-  color: #fff;
-  padding: 35px;
-  text-align: center;
-}
+footer { background: var(--primary); color: #fff; padding: 35px; text-align: center; }
 
 /* FLOATING */
 .floating { position: fixed; right: 20px; z-index: 999; }
@@ -209,7 +182,6 @@ footer {
 
 .call a { background: var(--primary); }
 
-/* RESPONSIVE */
 @media(max-width:900px){
   .hero-card { grid-template-columns: 1fr; }
   .stats { grid-template-columns: repeat(2,1fr); }
@@ -223,6 +195,7 @@ footer {
   <h1>Yash Sharma</h1>
   <nav>
     <a href="#">Home</a>
+    <a href="#reviews">Reviews</a>
     <a href="#awards">Awards</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -233,9 +206,7 @@ footer {
     <img src="images/hero-city.jpg" alt="Real Estate">
     <div>
       <h2>Trusted <span>Real Estate Consultant</span><br>in Rajasthan & Mumbai</h2>
-      <p>
-        Helping investors and families with verified properties across Kota, Jaipur, Mumbai & Ajmer.
-      </p>
+      <p>Helping investors and families with verified properties across Kota, Jaipur, Mumbai & Ajmer.</p>
       <div class="social">
         <a href="#">YouTube</a>
         <a href="#">Instagram</a>
@@ -268,12 +239,9 @@ footer {
   </div>
 </section>
 
-<section>
-  <h2>Client Testimonials</h2>
-  <div class="stats">
-    <div class="stat-box"><p>"Very professional and transparent."</p><strong>- Rahul, Kota</strong></div>
-    <div class="stat-box"><p>"Smooth and trustworthy experience."</p><strong>- Neha, Jaipur</strong></div>
-  </div>
+<section id="reviews">
+  <h2>Client Feedback</h2>
+  <div class="stats" id="reviewGrid"></div>
 </section>
 
 <section id="awards">
@@ -308,6 +276,7 @@ footer {
 <div class="floating call"><a href="tel:+917597578804">📞</a></div>
 
 <script>
+// Awards auto loader
 const grid = document.getElementById("awardsGrid");
 for (let i = 1; i <= 50; i++) {
   const img = document.createElement("img");
@@ -317,6 +286,28 @@ for (let i = 1; i <= 50; i++) {
   img.onerror = () => img.remove();
   grid.appendChild(img);
 }
+
+// Reviews CSV loader
+fetch("data/feedback.csv")
+  .then(res => res.text())
+  .then(text => {
+    const rows = text.trim().split("\n").slice(1);
+    const reviewGrid = document.getElementById("reviewGrid");
+
+    rows.forEach(row => {
+      const [name, rating, feedback] = row.split(",");
+      const stars = "★".repeat(Math.floor(rating)) + (rating % 1 ? "½" : "");
+
+      const div = document.createElement("div");
+      div.className = "stat-box";
+      div.innerHTML = `
+        <div class="review-stars">${stars} (${rating}/5)</div>
+        <p>"${feedback}"</p>
+        <div class="review-name">— ${name}</div>
+      `;
+      reviewGrid.appendChild(div);
+    });
+  });
 </script>
 
 </body>
