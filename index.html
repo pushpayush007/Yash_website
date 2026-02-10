@@ -3,189 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Yash Sharma | Real Estate Consultant in Kota, Jaipur, Mumbai</title>
-<meta name="description" content="Yash Sharma – Trusted Real Estate Consultant with 2.5+ years experience, 70+ plots sold and 10k+ client network across Kota, Jaipur, Mumbai & Ajmer.">
-<meta name="keywords" content="Property Dealer Kota, Real Estate Jaipur, Plots in Mumbai, Property Consultant Ajmer">
-
+<title>Yash Sharma | Real Estate Consultant</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --primary:#0f172a;
-  --accent:#fbbf24;
-  --bg:#f5f5f5;
-  --card:#ffffff;
-}
-
+/* --- BASIC STYLES --- */
+:root { --primary:#0f172a; --accent:#fbbf24; --bg:#f5f5f5; --card:#ffffff; }
 * { box-sizing: border-box; }
+body { margin: 0; font-family: 'Poppins', sans-serif; background: var(--bg); color: #333; }
 
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: var(--bg);
-  color: #333;
-}
-
-h1, h2, h3 { letter-spacing: -0.5px; }
-section h2 { font-size: 2rem; margin-bottom: 20px; }
-p { font-size: 0.95rem; color: #555; }
-
-/* HEADER */
-header {
-  background: var(--primary);
-  color: #fff;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-nav a {
-  color: #fff;
-  margin-left: 20px;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-/* HERO */
-.hero {
-  background: linear-gradient(rgba(15,23,42,0.65),rgba(15,23,42,0.65)), url("images/hero-city.jpg") center/cover no-repeat;
-  padding: 90px 40px;
-}
-
-.hero-card {
-  backdrop-filter: blur(8px);
-  background: rgba(255,255,255,0.92);
-  border-radius: 18px;
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  padding: 45px;
-}
-
-.hero img { width: 100%; border-radius: 14px; }
+/* HEADER & HERO */
+header { background: var(--primary); color: #fff; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+nav a { color: #fff; margin-left: 20px; text-decoration: none; }
+.hero { background: linear-gradient(rgba(15,23,42,0.65),rgba(15,23,42,0.65)), url("images/hero-city.jpg") center/cover; padding: 90px 40px; }
+.hero-card { background: rgba(255,255,255,0.92); border-radius: 18px; max-width: 1100px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 45px; }
 .hero h2 { font-size: 2.4rem; margin: 0; }
 .hero h2 span { color: var(--accent); }
-
-.social a {
-  margin-right: 15px;
-  text-decoration: none;
-  font-weight: 600;
-  color: var(--primary);
-}
-
-/* SECTIONS */
-section { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
-
-/* STATS / CARDS */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 20px;
-}
-
-.stat-box {
-  background: var(--card);
-  padding: 30px;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-  transition: all 0.3s ease;
-}
-
-.stat-box:hover { transform: translateY(-6px); }
-.stat-box h3 { font-size: 2rem; margin: 0; }
-
-/* BUTTONS */
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.btn:hover { transform: scale(1.05); }
-.btn-primary { background: var(--primary); color: #fff; }
+.btn { display: inline-block; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; margin-top: 10px; }
+.btn-primary { background: var(--primary); color: #fff; border:none; cursor: pointer; }
 .btn-accent { background: var(--accent); color: #000; }
 
-/* AWARDS */
-.awards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
-  gap: 20px;
-}
+/* PROPERTIES SECTION */
+section { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+.location-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+.tab-btn { padding: 10px 25px; border: 2px solid var(--primary); background: transparent; color: var(--primary); border-radius: 25px; cursor: pointer; font-weight: 600; transition: 0.3s; }
+.tab-btn.active, .tab-btn:hover { background: var(--primary); color: #fff; }
 
-.awards-grid img {
-  width: 100%;
-  height: 150px;
-  border-radius: 14px;
-  object-fit: cover;
-  background: #ddd;
-  transition: transform 0.3s ease;
-}
+.property-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.property-card { background: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); cursor: pointer; border-left: 5px solid var(--accent); display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
+.property-card:hover { transform: translateX(5px); background: var(--primary); }
+.property-card h4 { margin: 0; font-size: 1rem; color: var(--primary); }
+.property-card span { font-size: 0.8rem; color: #888; }
+.property-card:hover h4 { color: #fff; }
 
-.awards-grid img:hover { transform: scale(1.05); }
+/* MODAL (PDF VIEWER) */
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; justify-content: center; align-items: center; padding: 20px; }
+.modal-content { background: #fff; width: 90%; max-width: 1000px; height: 85vh; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; }
+.modal-header { background: var(--primary); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+.modal-close { cursor: pointer; font-size: 24px; line-height: 1; }
+iframe { width: 100%; height: 100%; border: none; flex-grow: 1; }
 
-/* REVIEWS */
-.review-stars { color: var(--accent); font-size: 1.1rem; margin-bottom: 8px; }
-.review-name { font-weight: 600; margin-top: 10px; }
-
-/* CONTACT */
-.contact-form {
-  background: var(--card);
-  padding: 35px;
-  border-radius: 18px;
-  max-width: 700px;
-  margin: auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  margin-top: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-/* FOOTER */
+/* FOOTER & FLOATING */
 footer { background: var(--primary); color: #fff; padding: 35px; text-align: center; }
-
-/* FLOATING */
 .floating { position: fixed; right: 20px; z-index: 999; }
-.whatsapp { bottom: 90px; }
-.call { bottom: 20px; }
-
-.floating a {
-  width: 55px;
-  height: 55px;
-  background: #25d366;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 22px;
-  text-decoration: none;
-  margin-top: 10px;
-}
-
+.whatsapp { bottom: 90px; } .call { bottom: 20px; }
+.floating a { width: 55px; height: 55px; background: #25d366; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #fff; font-size: 22px; text-decoration: none; }
 .call a { background: var(--primary); }
-
-@media(max-width:900px){
-  .hero-card { grid-template-columns: 1fr; }
-  .stats { grid-template-columns: repeat(2,1fr); }
-}
 </style>
 </head>
 
@@ -195,125 +59,133 @@ footer { background: var(--primary); color: #fff; padding: 35px; text-align: cen
   <h1>Yash Sharma</h1>
   <nav>
     <a href="#">Home</a>
-    <a href="#reviews">Reviews</a>
-    <a href="#awards">Awards</a>
+    <a href="#properties">Properties</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <div class="hero">
   <div class="hero-card">
-    <img src="images/hero-city.jpg" alt="Real Estate">
-    <div>
-      <h2>Trusted <span>Real Estate Consultant</span><br>in Rajasthan & Mumbai</h2>
-      <p>Helping investors and families with verified properties across Kota, Jaipur, Mumbai & Ajmer.</p>
-      <div class="social">
-        <a href="#">YouTube</a>
-        <a href="#">Instagram</a>
-        <a href="#">Facebook</a>
-        <a href="#">LinkedIn</a>
-      </div><br>
+    <img src="images/hero-city.jpg" alt="Real Estate" style="width:100%; border-radius:14px; display:none;"> <div>
+      <h2>Trusted <span>Real Estate Consultant</span></h2>
+      <p>Verified properties across Kota, Jaipur, Mumbai & Ajmer.</p>
       <a class="btn btn-primary" href="tel:+917597578804">Call Now</a>
-      <a class="btn btn-accent" href="#contact">Contact</a>
     </div>
   </div>
 </div>
 
-<section>
-  <h2>Track Record</h2>
-  <div class="stats">
-    <div class="stat-box"><h3>70+</h3><p>Plots Sold</p></div>
-    <div class="stat-box"><h3>10k+</h3><p>Client Network</p></div>
-    <div class="stat-box"><h3>2.5</h3><p>Years Experience</p></div>
-    <div class="stat-box"><h3>4</h3><p>Major Cities</p></div>
+<section id="properties">
+  <h2>Prime Properties & Layouts</h2>
+  <div class="location-tabs">
+    <button class="tab-btn active" onclick="loadCity('Kota')">Kota</button>
+    <button class="tab-btn" onclick="loadCity('Jaipur')">Jaipur</button>
+    <button class="tab-btn" onclick="loadCity('Mumbai')">Mumbai</button>
+    <button class="tab-btn" onclick="loadCity('Ajmer')">Ajmer</button>
   </div>
-</section>
 
-<section>
-  <h2>Why Choose Me</h2>
-  <div class="stats">
-    <div class="stat-box"><h3>✔</h3><p>Verified Properties</p></div>
-    <div class="stat-box"><h3>₹</h3><p>Transparent Pricing</p></div>
-    <div class="stat-box"><h3>📍</h3><p>Local Expertise</p></div>
-    <div class="stat-box"><h3>🤝</h3><p>End-to-End Support</p></div>
-  </div>
-</section>
-
-<section id="reviews">
-  <h2>Client Feedback</h2>
-  <div class="stats" id="reviewGrid"></div>
-</section>
-
-<section id="awards">
-  <h2>Professional Achievements</h2>
-  <div class="awards-grid" id="awardsGrid"></div>
-</section>
-
-<section>
-  <h2>Service Locations</h2>
-
-  <div style="text-align:center; margin-top:10px">
-    <a class="btn btn-accent" href="https://maps.google.com?q=Kota" target="_blank">Kota</a>
-    <a class="btn btn-accent" href="https://maps.google.com?q=Jaipur" target="_blank">Jaipur</a>
-    <a class="btn btn-accent" href="https://maps.google.com?q=Mumbai" target="_blank">Mumbai</a>
-    <a class="btn btn-accent" href="https://maps.google.com?q=Ajmer" target="_blank">Ajmer</a>
-  </div>
+  <div class="property-grid" id="propertyList">
+    </div>
 </section>
 
 <section id="contact">
   <h2>Contact Me</h2>
-  <div class="contact-form">
-    <form action="https://formsubmit.co/yash2sharma2000@gmail.com" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-      <button class="btn btn-primary" type="submit">Send Message</button>
-    </form>
-  </div>
+  <form action="https://formsubmit.co/yash2sharma2000@gmail.com" method="POST" style="background:#fff; padding:30px; border-radius:10px; max-width:600px; margin:auto;">
+    <input type="text" name="name" placeholder="Name" required style="width:100%; padding:10px; margin-bottom:10px;">
+    <input type="email" name="email" placeholder="Email" required style="width:100%; padding:10px; margin-bottom:10px;">
+    <button class="btn btn-primary" type="submit">Send</button>
+  </form>
 </section>
 
 <footer>
-  <p>📞 7597578804 | ✉️ yash2sharma2000@gmail.com</p>
-  <p>Kota • Jaipur • Mumbai • Ajmer</p>
+  <p>📞 7597578804 | Kota • Jaipur • Mumbai • Ajmer</p>
 </footer>
 
 <div class="floating whatsapp"><a href="https://wa.me/917597578804">💬</a></div>
 <div class="floating call"><a href="tel:+917597578804">📞</a></div>
 
+<div class="modal-overlay" id="layoutModal" onclick="closeModal(event)">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="modalTitle">Layout Plan</h3>
+      <div class="modal-close" onclick="closeModal(event)">×</div>
+    </div>
+    <iframe id="modalFrame" src=""></iframe>
+  </div>
+</div>
+
 <script>
-// Awards auto loader
-const grid = document.getElementById("awardsGrid");
-for (let i = 1; i <= 50; i++) {
-  const img = document.createElement("img");
-  img.src = `images/awards/award${i}.jpg`;
-  img.style.display = "none";
-  img.onload = () => img.style.display = "block";
-  img.onerror = () => img.remove();
-  grid.appendChild(img);
+// --- CONFIGURATION BASED ON YOUR TERMINAL OUTPUT ---
+// "name": What shows on the website button
+// "file": The EXACT filename inside images/City_properties/{City}/
+
+const properties = {
+  "Kota": [
+    { name: "Ekal Patta Main Plan", file: "EKAL PATTA Plan.pdf" },
+    { name: "Plot No 2 - Ekal Patta", file: "LAYOUT PLOT NO 2-EKAL PATTA.pdf" },
+    { name: "Plot No 3 - Ekal Patta", file: "LAYOUT PLOT NO 3- EKAL PATTA.pdf" },
+    { name: "Plot No 4 - Ekal Patta", file: "LAYOUT PLOT NO 4- EKAL PATTA.pdf" }
+  ],
+  "Jaipur": [
+    // Add Jaipur files here when you have them, e.g.:
+    // { name: "Jagatpura Plan", file: "jagatpura.pdf" }
+  ],
+  "Mumbai": [],
+  "Ajmer": []
+};
+
+const propList = document.getElementById("propertyList");
+const tabs = document.querySelectorAll(".tab-btn");
+const modal = document.getElementById("layoutModal");
+const modalFrame = document.getElementById("modalFrame");
+const modalTitle = document.getElementById("modalTitle");
+
+function loadCity(city) {
+  // 1. Highlight active tab
+  tabs.forEach(btn => {
+    btn.classList.remove("active");
+    if(btn.innerText === city) btn.classList.add("active");
+  });
+
+  // 2. Clear current list
+  propList.innerHTML = "";
+
+  // 3. Check if we have data
+  const cityData = properties[city];
+  if (cityData && cityData.length > 0) {
+    cityData.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "property-card";
+      div.innerHTML = `<h4>${item.name}</h4><span>View PDF →</span>`;
+      
+      div.onclick = () => {
+        // Construct the path based on your folder structure:
+        // images/City_properties/Kota/Filename.pdf
+        const path = `images/City_properties/${city}/${item.file}`;
+        openModal(path, item.name);
+      };
+      
+      propList.appendChild(div);
+    });
+  } else {
+    propList.innerHTML = `<p style="grid-column:1/-1; text-align:center;">No layout plans uploaded for ${city} yet.</p>`;
+  }
 }
 
-// Reviews CSV loader
-fetch("data/feedback.csv")
-  .then(res => res.text())
-  .then(text => {
-    const rows = text.trim().split("\n").slice(1);
-    const reviewGrid = document.getElementById("reviewGrid");
+function openModal(src, title) {
+  modalFrame.src = src;
+  modalTitle.innerText = title;
+  modal.style.display = "flex";
+}
 
-    rows.forEach(row => {
-      const [name, rating, feedback] = row.split(",");
-      const stars = "★".repeat(Math.floor(rating)) + (rating % 1 ? "½" : "");
+function closeModal(e) {
+  if(e.target === modal || e.target.classList.contains("modal-close")) {
+    modal.style.display = "none";
+    modalFrame.src = ""; // Stop PDF from playing/downloading in background
+  }
+}
 
-      const div = document.createElement("div");
-      div.className = "stat-box";
-      div.innerHTML = `
-        <div class="review-stars">${stars} (${rating}/5)</div>
-        <p>"${feedback}"</p>
-        <div class="review-name">— ${name}</div>
-      `;
-      reviewGrid.appendChild(div);
-    });
-  });
+// Initialize with Kota
+loadCity("Kota");
 </script>
 
 </body>
